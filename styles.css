@@ -28,7 +28,7 @@ header p {
 
 .ticket-card {
   background: #1a1a1a;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -44,6 +44,7 @@ header p {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  border-bottom: 1px solid #222;
 }
 
 
