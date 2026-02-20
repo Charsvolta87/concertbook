@@ -1,37 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Concertbook</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="imágenes/Ícono de entrada de concierto.png">
 
-<title>ConcertPlanner</title>
-
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 </head>
-
 <body>
 
-<header>
-<h1>🎸 ConcertPlanner</h1>
-<nav>
-<button class="tab-btn active" data-tab="album">🎫 Entradas</button>
-<button class="tab-btn" data-tab="planner">📅 Organizador</button>
-</nav>
-</header>
+  <header>
+    <h1>🎫 Mis Entradas</h1>
+    <p>Álbum de entradas a recitales</p>
+  </header>
 
-<!-- ========================= -->
-<!-- ALBUM DE ENTRADAS -->
-<!-- ========================= -->
+  <section class="album" id="album">
 
-<section id="album" class="tab-content active">
-
-<div class="album-grid">
-
-<!-- Entrada 1 -->
+    <!-- Entrada 1 -->
     <div class="ticket-card">
       <img src="imágenes/Picsart_26-02-12_02-02-00-708.jpg" alt="Flema">
       <div class="ticket-info">
@@ -167,69 +152,16 @@
       </div>
     </div>
 
-</div>
+  </section>
 
-</section>
 
-<!-- ========================= -->
-<!-- ORGANIZADOR -->
-<!-- ========================= -->
-
-<section id="planner" class="tab-content">
-
-<section class="glass">
-<h2>Agregar Evento</h2>
-<form id="evento-form">
-<input type="text" id="nombre" placeholder="Nombre del evento" required>
-<input type="date" id="fecha" required>
-<input type="text" id="lugar" placeholder="Lugar" required>
-<input type="number" id="precio" placeholder="Precio (opcional)" step="0.01">
-<button>Agregar</button>
-</form>
-</section>
-
-<section class="glass">
-<h2>Eventos</h2>
-<table>
-<thead>
-<tr>
-<th>Fecha</th>
-<th>Evento</th>
-<th>Lugar</th>
-<th>Precio</th>
-<th>Voy</th>
-</tr>
-</thead>
-<tbody id="eventos-table"></tbody>
-</table>
-</section>
-
-<section class="glass">
-<h2>Calendario</h2>
-<div id="calendar"></div>
-</section>
-
-<section class="glass">
-<h2>Gastos</h2>
-<p>Total necesario: $<span id="total">0</span></p>
-<p>Pagado: $<span id="pagado">0</span></p>
-<p>Falta pagar: $<span id="falta">0</span></p>
-
-<input type="number" id="pago-input" placeholder="Ingresar pago" step="0.01">
-<button id="agregar-pago">Agregar pago</button>
-</section>
-
-</section>
-
-<!-- MODAL IMAGEN -->
+  
+<!-- Modal -->
 <div class="modal" id="imageModal">
-<span class="close">&times;</span>
-<img class="modal-content" id="modalImage">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
 </div>
-
-<script src="firebase-config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-<script src="scripts.js"></script>
-
+  
+  <script src="scripts.js"></script>
 </body>
 </html>
