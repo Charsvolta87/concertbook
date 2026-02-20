@@ -1,167 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Concertbook</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="imágenes/Ícono de entrada de concierto.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>ConcertPlanner</title>
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 </head>
+
 <body>
 
-  <header>
-    <h1>🎫 Mis Entradas</h1>
-    <p>Álbum de entradas a recitales</p>
-  </header>
+<header>
+<h1>🎸 ConcertPlanner</h1>
+<nav>
+<button class="tab-btn active" data-tab="album">🎫 Entradas</button>
+<button class="tab-btn" data-tab="planner">📅 Organizador</button>
+</nav>
+</header>
 
-  <section class="album" id="album">
+<!-- ========================= -->
+<!-- ALBUM DE ENTRADAS -->
+<!-- ========================= -->
 
-    <!-- Entrada 1 -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-12_02-02-00-708.jpg" alt="Flema">
-      <div class="ticket-info">
-        <h2>Flema</h2>
-        <p>12 de Abril 2025</p>
-        <p>Club Tucuman</p>
-        <span class="platform">Alpogo</span>
-      </div>
-    </div>
+<section id="album" class="tab-content active">
 
-    
-    <!-- Entrada 2 -->
-    <div class="ticket-card">
-      <img src="imágenes/linkin-park-argentina-2025 (1).jpg" alt="Linkin Park">
-      <div class="ticket-info">
-        <h2>Linkin Park</h2>
-        <p>31 de Octubre 2025</p>
-        <p>Parque de la Ciudad</p>
-        <span class="platform">AllAccess</span>
-      </div>
-    </div>
+<div class="album-grid">
 
-    <!-- Entrada 3 -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-11_18-06-03-752.jpg" alt="Fundamentalistas">
-      <div class="ticket-info">
-        <h2>Los Fundamentalistas de Aire Acondicionado</h2>
-        <p>7 de Diciembre 2025</p>
-        <p>Estadio Diego Armando Maradona</p>
-        <span class="platform">Tu Entrada</span>
-      </div>
-    </div>
-
-    <!-- Entrada 4  -->
-    <div class="ticket-card">
-      <img src="imágenes/divididos-flores.jpg" alt="Divididos">
-      <div class="ticket-info">
-        <h2>Divididos</h2>
-        <p>14 de Diciembre 2025</p>
-        <p>El Teatro Flores</p>
-        <span class="platform">Passline</span>
-      </div>
-    </div>
-
-     <!-- Entrada 5   
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-12_03-53-21-184.jpg" alt="Etiqueta Negra">
-      <div class="ticket-info">
-        <h2>Etiqueta Negra</h2>
-        <p>27 de Diciembre 2025</p>
-        <p>Estación Provincial</p>
-        <span class="platform">Alpogo</span>
-      </div>
-    </div> -->
-
-    <!-- Entrada 5   -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-12_12-24-40-420.jpg" alt="Cosquín Rock 2026">
-      <div class="ticket-info">
-        <h2>Cosquín Rock 2026</h2>
-        <p>15 de Febrero 2026</p>
-        <p>Aeródromo Santa Maria de Punilla</p>
-        <span class="platform">Eden Entradas</span>
-      </div>
-    </div>
-
-
-     <!-- Entrada 6 -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-11_18-49-40-644.jpg" alt="AC/DC">
-      <div class="ticket-info">
-        <h2>AC/DC</h2>
-        <p>27 de Marzo 2026</p>
-        <p>River Plate</p>
-        <span class="platform">AllAccess</span>
-      </div>
-    </div>
-
-    <!-- Entrada 7   -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-11_19-04-16-881.jpg" alt="Rata Blanca">
-      <div class="ticket-info">
-        <h2>Rata Blanca</h2>
-        <p>29 de Marzo 2026</p>
-        <p>Teatro Flores</p>
-        <span class="platform">Passline</span>
-      </div>
-    </div>
-
-
-    <!-- Entrada 8 -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-12_02-27-31-646.jpg" alt="La Renga">
-      <div class="ticket-info">
-        <h2>La Renga</h2>
-        <p>2 de Abril 2026</p>
-        <p>Estadio Huracán</p>
-        <span class="platform">Arte Infernal</span>
-      </div>
-    </div>
-
-    <!-- Entrada 9 -->
-    <div class="ticket-card">
-      <img src="imágenes/las-pastillas-del-abuelo-ferro-2026.jpg" alt="Las Pastillas Ferro">
-      <div class="ticket-info">
-        <h2>Las Pastillas del Abuelo</h2>
-        <p>18 de Abril 2026</p>
-        <p>Estadio Ferro</p>
-        <span class="platform">Enigma</span>
-      </div>
-    </div>
-
-    <!-- Entrada 9 -->
-    <div class="ticket-card">
-      <img src="imágenes/Picsart_26-02-17_15-43-10-746.jpg" alt="NTVG Ferro">
-      <div class="ticket-info">
-        <h2>No Te Va Gustar</h2>
-        <p>25 de Abril 2026</p>
-        <p>Estadio Ferro</p>
-        <span class="platform">Enigma</span>
-      </div>
-    </div>
-
-
-    <!-- Entrada 10 -->   
-    <div class="ticket-card">
-      <img src="imágenes/82ce9854-94be-4d78-905d-22395bad745e-korn-anuncio-banneraa-640x640.jpg" alt="Korn">
-      <div class="ticket-info">
-        <h2>Korn</h2>
-        <p>10 de Mayo 2026</p>
-        <p>Parque Sarmiento</p>
-        <span class="platform">AllAccess</span>
-      </div>
-    </div>
-
-  </section>
-
-
-  
-<!-- Modal -->
-<div class="modal" id="imageModal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modalImage">
+<div class="ticket-card">
+<img src="imagenes/linkin-park-argentina-2025 (1).jpg" alt="Linkin Park">
+<div class="ticket-info">
+<h2>Linkin Park</h2>
+<p>31 de Octubre 2025</p>
+<p>Parque de la Ciudad</p>
+<span class="platform">AllAccess</span>
 </div>
-  
-  <script src="scripts.js"></script>
+</div>
+
+<div class="ticket-card">
+<img src="imagenes/divididos-flores.jpg" alt="Divididos">
+<div class="ticket-info">
+<h2>Divididos</h2>
+<p>14 de Diciembre 2025</p>
+<p>El Teatro Flores</p>
+<span class="platform">Passline</span>
+</div>
+</div>
+
+<!-- Agregá el resto igual que antes -->
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- ORGANIZADOR -->
+<!-- ========================= -->
+
+<section id="planner" class="tab-content">
+
+<section class="glass">
+<h2>Agregar Evento</h2>
+<form id="evento-form">
+<input type="text" id="nombre" placeholder="Nombre del evento" required>
+<input type="date" id="fecha" required>
+<input type="text" id="lugar" placeholder="Lugar" required>
+<input type="number" id="precio" placeholder="Precio (opcional)" step="0.01">
+<button>Agregar</button>
+</form>
+</section>
+
+<section class="glass">
+<h2>Eventos</h2>
+<table>
+<thead>
+<tr>
+<th>Fecha</th>
+<th>Evento</th>
+<th>Lugar</th>
+<th>Precio</th>
+<th>Voy</th>
+</tr>
+</thead>
+<tbody id="eventos-table"></tbody>
+</table>
+</section>
+
+<section class="glass">
+<h2>Calendario</h2>
+<div id="calendar"></div>
+</section>
+
+<section class="glass">
+<h2>Gastos</h2>
+<p>Total necesario: $<span id="total">0</span></p>
+<p>Pagado: $<span id="pagado">0</span></p>
+<p>Falta pagar: $<span id="falta">0</span></p>
+
+<input type="number" id="pago-input" placeholder="Ingresar pago" step="0.01">
+<button id="agregar-pago">Agregar pago</button>
+</section>
+
+</section>
+
+<!-- MODAL IMAGEN -->
+<div class="modal" id="imageModal">
+<span class="close">&times;</span>
+<img class="modal-content" id="modalImage">
+</div>
+
+<script src="firebase-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+<script src="scripts.js"></script>
+
 </body>
 </html>
